@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>kosten.solar – Kostenlose PV-Rechner für Deutschland 2025</title>
+<meta name="description" content="Was kostet eine Solaranlage? Berechne Ertrag, Amortisation, Einspeisevergütung, Speicher und Förderung deiner PV-Anlage – kostenlos, ohne Anmeldung, EEG 2025.">
+<link rel="canonical" href="https://kosten.solar/">
+<meta property="og:title" content="kosten.solar – PV-Rechner für Deutschland">
+<meta property="og:description" content="Kostenlose Rechner für deine Solaranlage – Ertrag, Kosten, Förderung, Amortisation.">
+<meta property="og:url" content="https://kosten.solar/">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "kosten.solar",
+  "url": "https://kosten.solar",
+  "description": "Kostenlose PV-Rechner für Deutschland: Ertrag, Amortisation, Einspeisevergütung, Speicher, Förderung.",
+  "inLanguage": "de-DE"
+}
+</script>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="logo">kosten<em>.solar</em></a>
+  <ul class="nav-links">
+    <li><a href="pv-ertragsrechner.html">Ertrag</a></li>
+    <li><a href="amortisationsrechner.html">Amortisation</a></li>
+    <li><a href="einspeiseverguetung.html">Einspeisung</a></li>
+    <li><a href="speicherrechner.html">Speicher</a></li>
+    <li><a href="foerderrechner.html">Förderung</a></li>
+    <li><a href="#" class="nav-cta" onclick="openModal();return false;">Angebot →</a></li>
+  </ul>
+</nav>
+
+<div class="ticker">
+  <div class="ticker-inner">
+    EEG 2025: Einspeisevergütung bis 10 kWp <span>8,03 ct/kWh</span> &nbsp;·&nbsp;
+    KfW 270: Zinsgünstige Kredite <span>verfügbar</span> &nbsp;·&nbsp;
+    Ø Strompreis Deutschland <span>0,32 €/kWh</span> &nbsp;·&nbsp;
+    Amortisation Privatanlage Ø <span>11 Jahre</span> &nbsp;·&nbsp;
+    Bayern: Höchste Solarförderung <span>750 €</span> &nbsp;·&nbsp;
+    EEG 2025: Einspeisevergütung bis 10 kWp <span>8,03 ct/kWh</span> &nbsp;·&nbsp;
+    KfW 270: Zinsgünstige Kredite <span>verfügbar</span> &nbsp;·&nbsp;
+    Ø Strompreis Deutschland <span>0,32 €/kWh</span> &nbsp;·&nbsp;
+    Amortisation Privatanlage Ø <span>11 Jahre</span>
+  </div>
+</div>
+
+<!-- HERO -->
+<div style="background:var(--ink);padding:5rem 2rem 4rem;position:relative;overflow:hidden;">
+  <div style="position:absolute;inset:0;background:radial-gradient(ellipse 60% 50% at 70% 30%,rgba(240,165,0,0.08) 0%,transparent 60%),radial-gradient(ellipse 40% 60% at 15% 70%,rgba(127,217,74,0.05) 0%,transparent 50%);pointer-events:none;"></div>
+  <div style="position:absolute;inset:0;background-image:linear-gradient(rgba(127,217,74,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(127,217,74,0.04) 1px,transparent 1px);background-size:60px 60px;pointer-events:none;"></div>
+  <div style="max-width:var(--max-w);margin:0 auto;position:relative;">
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:1.5rem;" class="fade-up">
+      <div style="width:32px;height:2px;background:var(--amber);"></div>
+      <span style="font-size:0.72rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--amber);">Solar Intelligence Platform · Deutschland 2025</span>
+    </div>
+    <h1 style="font-family:'Bebas Neue',sans-serif;font-size:clamp(3.5rem,9vw,8rem);line-height:0.9;letter-spacing:0.02em;color:var(--text);margin-bottom:1.5rem;" class="fade-up-2">
+      WAS KOSTET<br><span style="color:var(--amber);">SOLAR</span><br>
+      <span style="font-size:0.45em;color:var(--lime);letter-spacing:0.06em;display:block;margin-top:0.3em;">WIRKLICH?</span>
+    </h1>
+    <p style="font-size:1.05rem;color:var(--text-dim);max-width:520px;font-weight:300;line-height:1.7;margin-bottom:2.5rem;" class="fade-up-3">
+      5 professionelle Rechner für deine Photovoltaikanlage — Ertrag, Wirtschaftlichkeit, Einspeisevergütung, Speicher und Förderung. Kostenlos, ohne Anmeldung, aktuelle EEG 2025 Daten.
+    </p>
+    <div style="display:flex;gap:12px;flex-wrap:wrap;" class="fade-up-3">
+      <a href="pv-ertragsrechner.html" style="background:var(--amber);color:var(--ink);border-radius:var(--radius);padding:14px 28px;font-size:0.85rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;text-decoration:none;transition:all 0.2s;">Jetzt berechnen →</a>
+      <a href="#rechner" style="background:transparent;color:var(--lime);border:1px solid var(--lime);border-radius:var(--radius);padding:14px 28px;font-size:0.85rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;text-decoration:none;transition:all 0.2s;">Alle Rechner</a>
+    </div>
+  </div>
+</div>
+
+<!-- STATS -->
+<div style="background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border);">
+  <div style="max-width:var(--max-w);margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);">
+    <div style="padding:1.5rem 2rem;border-right:1px solid var(--border);text-align:center;">
+      <div style="font-family:'Bebas Neue',sans-serif;font-size:2.2rem;color:var(--amber);">5</div>
+      <div style="font-size:0.7rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.08em;font-weight:700;">Rechner</div>
+    </div>
+    <div style="padding:1.5rem 2rem;border-right:1px solid var(--border);text-align:center;">
+      <div style="font-family:'Bebas Neue',sans-serif;font-size:2.2rem;color:var(--amber);">100%</div>
+      <div style="font-size:0.7rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.08em;font-weight:700;">Kostenlos</div>
+    </div>
+    <div style="padding:1.5rem 2rem;border-right:1px solid var(--border);text-align:center;">
+      <div style="font-family:'Bebas Neue',sans-serif;font-size:2.2rem;color:var(--amber);">EEG25</div>
+      <div style="font-size:0.7rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.08em;font-weight:700;">Aktuelle Daten</div>
+    </div>
+    <div style="padding:1.5rem 2rem;text-align:center;">
+      <div style="font-family:'Bebas Neue',sans-serif;font-size:2.2rem;color:var(--amber);">DSGVO</div>
+      <div style="font-size:0.7rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.08em;font-weight:700;">Konform</div>
+    </div>
+  </div>
+</div>
+
+<!-- RECHNER GRID -->
+<div id="rechner" style="max-width:var(--max-w);margin:0 auto;padding:4rem 2rem;">
+  <div style="font-size:0.7rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--lime);margin-bottom:0.75rem;display:flex;align-items:center;gap:8px;">
+    <span style="display:inline-block;width:20px;height:2px;background:var(--lime);"></span>Deine Rechner
+  </div>
+  <h2 style="font-family:'Bebas Neue',sans-serif;font-size:clamp(2rem,4vw,3rem);letter-spacing:0.03em;color:var(--text);margin-bottom:0.5rem;">ALLES RUND UM SOLAR-KOSTEN</h2>
+  <p style="color:var(--text-dim);font-weight:300;max-width:480px;margin-bottom:2.5rem;">Von der ersten Ertragskalkulation bis zur Fördermittelübersicht — alles kostenlos und ohne Anmeldung.</p>
+
+  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1px;background:var(--border);border:1px solid var(--border);border-radius:var(--radius-lg);overflow:hidden;">
+
+    <a href="pv-ertragsrechner.html" style="background:var(--surface);padding:1.75rem;text-decoration:none;display:block;transition:background 0.2s;position:relative;overflow:hidden;" onmouseover="this.style.background='var(--surface2)'" onmouseout="this.style.background='var(--surface)'">
+      <div style="font-size:1.8rem;margin-bottom:0.75rem;">☀️</div>
+      <div style="font-size:0.65rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--amber);margin-bottom:4px;">Ertrag & Leistung</div>
+      <h3 style="font-family:'Bebas Neue',sans-serif;font-size:1.5rem;letter-spacing:0.03em;color:var(--text);margin-bottom:6px;">PV-ERTRAGSRECHNER</h3>
+      <p style="font-size:0.85rem;color:var(--text-dim);font-weight:300;line-height:1.5;margin-bottom:1rem;">Berechne den jährlichen Stromertrag deiner Anlage nach Dachfläche, Ausrichtung und Standort.</p>
+      <span style="font-size:0.8rem;color:var(--lime);font-weight:500;">Jetzt berechnen →</span>
+    </a>
+
+    <a href="amortisationsrechner.html" style="background:var(--surface);padding:1.75rem;text-decoration:none;display:block;transition:background 0.2s;" onmouseover="this.style.background='var(--surface2)'" onmouseout="this.style.background='var(--surface)'">
+      <div style="font-size:1.8rem;margin-bottom:0.75rem;">📈</div>
+      <div style="font-size:0.65rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--amber);margin-bottom:4px;">Wirtschaftlichkeit</div>
+      <h3 style="font-family:'Bebas Neue',sans-serif;font-size:1.5rem;letter-spacing:0.03em;color:var(--text);margin-bottom:6px;">AMORTISATIONSRECHNER</h3>
+      <p style="font-size:0.85rem;color:var(--text-dim);font-weight:300;line-height:1.5;margin-bottom:1rem;">Wann hat sich deine PV-Anlage bezahlt? Break-even und Rendite über 25 Jahre berechnen.</p>
+      <span style="font-size:0.8rem;color:var(--lime);font-weight:500;">Jetzt berechnen →</span>
+    </a>
+
+    <a href="einspeiseverguetung.html" style="background:var(--surface);padding:1.75rem;text-decoration:none;display:block;transition:background 0.2s;" onmouseover="this.style.background='var(--surface2)'" onmouseout="this.style.background='var(--surface)'">
+      <div style="font-size:1.8rem;margin-bottom:0.75rem;">⚡</div>
+      <div style="font-size:0.65rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--amber);margin-bottom:4px;">EEG 2025</div>
+      <h3 style="font-family:'Bebas Neue',sans-serif;font-size:1.5rem;letter-spacing:0.03em;color:var(--text);margin-bottom:6px;">EINSPEISEVERGÜTUNG</h3>
+      <p style="font-size:0.85rem;color:var(--text-dim);font-weight:300;line-height:1.5;margin-bottom:1rem;">Aktuelle EEG 2025 Vergütungssätze. Berechne deine Einnahmen aus der Netzeinspeisung.</p>
+      <span style="font-size:0.8rem;color:var(--lime);font-weight:500;">Jetzt berechnen →</span>
+    </a>
+
+    <a href="speicherrechner.html" style="background:var(--surface);padding:1.75rem;text-decoration:none;display:block;transition:background 0.2s;" onmouseover="this.style.background='var(--surface2)'" onmouseout="this.style.background='var(--surface)'">
+      <div style="font-size:1.8rem;margin-bottom:0.75rem;">🔋</div>
+      <div style="font-size:0.65rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--amber);margin-bottom:4px;">Speicher & Eigenverbrauch</div>
+      <h3 style="font-family:'Bebas Neue',sans-serif;font-size:1.5rem;letter-spacing:0.03em;color:var(--text);margin-bottom:6px;">SPEICHER-RECHNER</h3>
+      <p style="font-size:0.85rem;color:var(--text-dim);font-weight:300;line-height:1.5;margin-bottom:1rem;">Optimale Speichergröße berechnen und Eigenverbrauchsquote maximieren.</p>
+      <span style="font-size:0.8rem;color:var(--lime);font-weight:500;">Jetzt berechnen →</span>
+    </a>
+
+    <a href="foerderrechner.html" style="background:var(--surface);padding:1.75rem;text-decoration:none;display:block;transition:background 0.2s;grid-column:span 1;" onmouseover="this.style.background='var(--surface2)'" onmouseout="this.style.background='var(--surface)'">
+      <div style="font-size:1.8rem;margin-bottom:0.75rem;">🏛️</div>
+      <div style="font-size:0.65rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--amber);margin-bottom:4px;">KfW · BAFA · Bundesland</div>
+      <h3 style="font-family:'Bebas Neue',sans-serif;font-size:1.5rem;letter-spacing:0.03em;color:var(--text);margin-bottom:6px;">FÖRDERRECHNER</h3>
+      <p style="font-size:0.85rem;color:var(--text-dim);font-weight:300;line-height:1.5;margin-bottom:1rem;">Alle verfügbaren Förderungen nach PLZ — KfW, BAFA und Bundeslandprogramme.</p>
+      <span style="font-size:0.8rem;color:var(--lime);font-weight:500;">Jetzt berechnen →</span>
+    </a>
+
+  </div>
+</div>
+
+<!-- SEO CONTENT -->
+<div style="max-width:var(--max-w);margin:0 auto;padding:0 2rem 4rem;">
+  <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);padding:2.5rem;">
+    <h2 style="font-family:'Bebas Neue',sans-serif;font-size:2rem;letter-spacing:0.03em;color:var(--text);margin-bottom:1rem;">WAS KOSTET EINE SOLARANLAGE IN DEUTSCHLAND?</h2>
+    <p style="color:var(--text-dim);font-weight:300;line-height:1.8;margin-bottom:1rem;">Eine Photovoltaikanlage kostet in Deutschland je nach Größe und Ausstattung zwischen <strong style="color:var(--text);">8.000 € und 25.000 €</strong>. Eine typische Anlage für ein Einfamilienhaus mit 8–10 kWp liegt bei etwa 15.000–20.000 € brutto inklusive Montage, Wechselrichter und Zählerumbau.</p>
+    <p style="color:var(--text-dim);font-weight:300;line-height:1.8;margin-bottom:1rem;">Die genauen Kosten hängen von mehreren Faktoren ab: der installierten Leistung in kWp, der Qualität der Module und des Wechselrichters, den regionalen Montagekosten sowie davon ob ein Batteriespeicher mitinstalliert wird. Mit unserem <a href="pv-ertragsrechner.html" style="color:var(--amber);">PV-Ertragsrechner</a> kannst du die optimale Anlagengröße für dein Dach berechnen.</p>
+    <p style="color:var(--text-dim);font-weight:300;line-height:1.8;">Die gute Nachricht: Durch <strong style="color:var(--text);">staatliche Förderungen</strong> (KfW 270, Bundesland-Zuschüsse) und die <strong style="color:var(--text);">EEG-Einspeisevergütung</strong> amortisiert sich eine moderne PV-Anlage in Deutschland durchschnittlich nach 10–14 Jahren. Danach produziert sie für 10–15 weitere Jahre kostenlosen Strom.</p>
+  </div>
+</div>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="modal">
+  <div class="modal">
+    <div id="modal-form">
+      <div class="modal-tag">Kostenlos & Unverbindlich</div>
+      <h3>ANGEBOT ANFORDERN</h3>
+      <p>Wir verbinden dich mit geprüften Installateuren in deiner Region.</p>
+      <div class="modal-form">
+        <input type="text" id="m-name" placeholder="Vorname *">
+        <input type="email" id="m-email" placeholder="E-Mail *">
+        <input type="tel" id="m-tel" placeholder="Telefon (optional)">
+        <input type="text" id="m-plz" placeholder="Postleitzahl *" maxlength="5">
+        <button class="modal-submit" onclick="submitLead()">Angebot anfordern →</button>
+        <button class="modal-cancel" onclick="closeModal()">Abbrechen</button>
+        <p style="font-size:0.7rem;color:var(--muted);text-align:center;">Mit dem Absenden stimmst du unserer <a href="datenschutz.html" style="color:var(--amber);">Datenschutzerklärung</a> zu.</p>
+      </div>
+    </div>
+    <div class="modal-success" id="modal-success">
+      <div style="font-size:3rem;">✅</div>
+      <h4>ANFRAGE GESENDET</h4>
+      <p style="color:var(--text-dim);">Du erhältst innerhalb von 24 Stunden eine Rückmeldung.</p>
+      <button class="modal-submit" style="margin-top:1rem;" onclick="closeModal()">Schließen</button>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <a href="index.html" class="logo">kosten<em>.solar</em></a>
+      <p>Die unabhängige Solar-Kalkulationsplattform für Deutschland. Kostenlos, ohne Anmeldung, EEG 2025.</p>
+      <p style="margin-top:0.5rem;font-size:0.75rem;">For questions: <a href="mailto:info@kosten.solar" style="color:var(--amber);text-decoration:none;">info@kosten.solar</a></p>
+    </div>
+    <div class="footer-col">
+      <h5>Rechner</h5>
+      <ul>
+        <li><a href="pv-ertragsrechner.html">PV-Ertragsrechner</a></li>
+        <li><a href="amortisationsrechner.html">Amortisationsrechner</a></li>
+        <li><a href="einspeiseverguetung.html">Einspeisevergütung</a></li>
+        <li><a href="speicherrechner.html">Speicher-Rechner</a></li>
+        <li><a href="foerderrechner.html">Förderrechner</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Rechtliches</h5>
+      <ul>
+        <li><a href="impressum.html">Impressum</a></li>
+        <li><a href="datenschutz.html">Datenschutz</a></li>
+        <li><a href="mailto:info@kosten.solar">Kontakt</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 kosten.solar · Alle Berechnungen ohne Gewähr · Diese Seite enthält Affiliate-Links</p>
+    <p><a href="datenschutz.html">Datenschutz</a> · <a href="impressum.html">Impressum</a></p>
+  </div>
+</footer>
+
+<script src="shared.js"></script>
+</body>
+</html>
