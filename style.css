@@ -23,6 +23,14 @@
   --radius: 4px;
   --radius-lg: 8px;
   --max-w: 1100px;
+  --glass: rgba(20,26,21,0.55);
+  --glow-amber: rgba(240,165,0,0.35);
+  --glow-lime: rgba(127,217,74,0.25);
+  --depth-shadow: 0 30px 80px -30px rgba(0,0,0,0.6), 0 10px 30px -12px rgba(0,0,0,0.5);
+  --depth-shadow-hover: 0 40px 100px -30px rgba(240,165,0,0.28), 0 16px 40px -14px rgba(0,0,0,0.6);
+}
+@media (prefers-reduced-motion: reduce) {
+  * { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; }
 }
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -48,12 +56,14 @@ body::before {
 /* ── NAV ── */
 nav {
   position: sticky; top: 0; z-index: 100;
-  background: rgba(10,14,11,0.95);
-  backdrop-filter: blur(20px);
+  background: rgba(10,14,11,0.75);
+  backdrop-filter: blur(20px) saturate(140%);
+  -webkit-backdrop-filter: blur(20px) saturate(140%);
   border-bottom: 1px solid var(--border);
   padding: 0 2rem;
   height: 60px;
   display: flex; align-items: center; justify-content: space-between;
+  box-shadow: 0 10px 40px -20px rgba(0,0,0,0.6);
 }
 .logo { font-family: 'Bebas Neue', sans-serif; font-size: 1.6rem; letter-spacing: 0.05em; color: var(--text); text-decoration: none; }
 .logo em { color: var(--amber); font-style: normal; }
@@ -99,14 +109,41 @@ nav {
 }
 @media (max-width: 900px) { .page-layout { grid-template-columns: 1fr; } }
 
+/* ── 3D TILT / GLASS SYSTEM ── */
+/* Applied via JS (shared.js:initTilt) to .calc-card, .related-card, .rechner-card, .tilt-3d.
+   Each element gets perspective + rotateX/rotateY from pointer position, plus a
+   cursor-tracked radial glare (--mx/--my) and a depth shadow that grows on hover. */
+.calc-card, .related-card, .rechner-card, .tilt-3d {
+  transform-style: preserve-3d;
+  transition: transform 0.15s cubic-bezier(0.22,1,0.36,1), box-shadow 0.35s ease, border-color 0.35s ease;
+  will-change: transform;
+}
+.related-card, .rechner-card, .tilt-3d { position: relative; }
+.calc-card::before, .related-card::before, .rechner-card::before, .tilt-3d::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(circle at var(--mx,50%) var(--my,50%), var(--glow-amber), transparent 55%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+  z-index: 2;
+  mix-blend-mode: screen;
+}
+.calc-card:hover::before, .related-card:hover::before, .rechner-card:hover::before, .tilt-3d:hover::before { opacity: 0.5; }
+.calc-card:hover, .rechner-card:hover, .tilt-3d:hover { box-shadow: var(--depth-shadow-hover); }
+.related-card:hover { box-shadow: var(--depth-shadow-hover); border-color: var(--border-amber); }
+
 /* ── CALCULATOR CARD ── */
 .calc-card {
-  background: var(--surface);
+  background: var(--glass);
+  backdrop-filter: blur(16px) saturate(140%);
+  -webkit-backdrop-filter: blur(16px) saturate(140%);
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
   overflow: hidden;
   position: sticky;
   top: 76px;
+  box-shadow: var(--depth-shadow);
 }
 .calc-card-header {
   padding: 1.25rem 1.5rem;
@@ -221,7 +258,19 @@ footer { background: var(--ink2); border-top: 1px solid var(--border); padding: 
 /* ── MODAL ── */
 .modal-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.8); z-index: 500; align-items: center; justify-content: center; padding: 1rem; backdrop-filter: blur(4px); }
 .modal-overlay.open { display: flex; }
-.modal { background: var(--surface); border: 1px solid var(--border-amber); border-radius: var(--radius-lg); padding: 2rem; max-width: 420px; width: 100%; }
+.modal {
+  background: var(--glass);
+  backdrop-filter: blur(24px) saturate(150%);
+  -webkit-backdrop-filter: blur(24px) saturate(150%);
+  border: 1px solid var(--border-amber);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  max-width: 420px;
+  width: 100%;
+  box-shadow: var(--depth-shadow-hover);
+  animation: modalPop 0.35s cubic-bezier(0.22,1,0.36,1) both;
+}
+@keyframes modalPop { from { opacity: 0; transform: perspective(800px) rotateX(8deg) scale(0.94) translateY(12px); } to { opacity: 1; transform: perspective(800px) rotateX(0) scale(1) translateY(0); } }
 .modal-tag { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--amber); margin-bottom: 0.5rem; }
 .modal h3 { font-family: 'Bebas Neue', sans-serif; font-size: 1.8rem; letter-spacing: 0.04em; color: var(--text); margin-bottom: 0.5rem; }
 .modal p { font-size: 0.85rem; color: var(--text-dim); margin-bottom: 1.5rem; }
@@ -237,5 +286,40 @@ footer { background: var(--ink2); border-top: 1px solid var(--border); padding: 
 .fade-up { animation: fadeUp 0.5s ease both; }
 .fade-up-2 { animation: fadeUp 0.5s ease 0.1s both; }
 .fade-up-3 { animation: fadeUp 0.5s ease 0.2s both; }
+
+/* ── 3D HERO CANVAS ── */
+.hero-wrap { position: relative; }
+.hero-3d-canvas {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 1.2s ease;
+  z-index: 1;
+}
+.hero-3d-canvas.ready { opacity: 1; }
+.hero-wrap .hero-inner { position: relative; z-index: 2; }
+
+/* ── RECHNER CARD (homepage grid) ── */
+.rechner-card {
+  background: var(--surface);
+  padding: 1.75rem;
+  text-decoration: none;
+  display: block;
+  position: relative;
+  overflow: hidden;
+}
+.rechner-card:hover { background: var(--surface2); }
+.rechner-card .rc-icon { font-size: 1.8rem; margin-bottom: 0.75rem; transform: translateZ(20px); }
+.rechner-card .rc-tag { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--amber); margin-bottom: 4px; }
+.rechner-card h3 { font-family: 'Bebas Neue', sans-serif; font-size: 1.5rem; letter-spacing: 0.03em; color: var(--text); margin-bottom: 6px; }
+.rechner-card .rc-desc { font-size: 0.85rem; color: var(--text-dim); font-weight: 300; line-height: 1.5; margin-bottom: 1rem; }
+.rechner-card .rc-cta { font-size: 0.8rem; color: var(--lime); font-weight: 500; }
+.badge-new { position: absolute; top: 12px; right: 12px; font-size: 0.6rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; background: var(--lime); color: var(--ink); padding: 3px 8px; border-radius: 2px; z-index: 3; }
+
+/* ── STAT BOX ── */
+.stat-box { padding: 1.5rem 2rem; text-align: center; position: relative; }
+.stat-box .stat-num { font-family: 'Bebas Neue', sans-serif; font-size: 2.2rem; color: var(--amber); transform: translateZ(16px); }
+.stat-box .stat-lbl { font-size: 0.7rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; font-weight: 700; }
 
 /* ── PLZ DATA ── */

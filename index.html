@@ -52,10 +52,11 @@
 </div>
 
 <!-- HERO -->
-<div style="background:var(--ink);padding:5rem 2rem 4rem;position:relative;overflow:hidden;">
+<div class="hero-wrap" style="background:var(--ink);padding:5rem 2rem 4rem;overflow:hidden;">
   <div style="position:absolute;inset:0;background:radial-gradient(ellipse 60% 50% at 70% 30%,rgba(240,165,0,0.08) 0%,transparent 60%),radial-gradient(ellipse 40% 60% at 15% 70%,rgba(127,217,74,0.05) 0%,transparent 50%);pointer-events:none;"></div>
   <div style="position:absolute;inset:0;background-image:linear-gradient(rgba(127,217,74,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(127,217,74,0.04) 1px,transparent 1px);background-size:60px 60px;pointer-events:none;"></div>
-  <div style="max-width:var(--max-w);margin:0 auto;position:relative;">
+  <canvas id="hero-canvas" class="hero-3d-canvas" aria-hidden="true"></canvas>
+  <div class="hero-inner" style="max-width:var(--max-w);margin:0 auto;">
     <div style="display:flex;align-items:center;gap:10px;margin-bottom:1.5rem;" class="fade-up">
       <div style="width:32px;height:2px;background:var(--amber);"></div>
       <span style="font-size:0.72rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--amber);">Solar Intelligence Platform · Deutschland 2025</span>
@@ -77,21 +78,21 @@
 <!-- STATS -->
 <div style="background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border);">
   <div style="max-width:var(--max-w);margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);">
-    <div style="padding:1.5rem 2rem;border-right:1px solid var(--border);text-align:center;">
-      <div style="font-family:'Bebas Neue',sans-serif;font-size:2.2rem;color:var(--amber);">5</div>
-      <div style="font-size:0.7rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.08em;font-weight:700;">Rechner</div>
+    <div class="stat-box tilt-3d" style="border-right:1px solid var(--border);">
+      <div class="stat-num">5</div>
+      <div class="stat-lbl">Rechner</div>
     </div>
-    <div style="padding:1.5rem 2rem;border-right:1px solid var(--border);text-align:center;">
-      <div style="font-family:'Bebas Neue',sans-serif;font-size:2.2rem;color:var(--amber);">100%</div>
-      <div style="font-size:0.7rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.08em;font-weight:700;">Kostenlos</div>
+    <div class="stat-box tilt-3d" style="border-right:1px solid var(--border);">
+      <div class="stat-num">100%</div>
+      <div class="stat-lbl">Kostenlos</div>
     </div>
-    <div style="padding:1.5rem 2rem;border-right:1px solid var(--border);text-align:center;">
-      <div style="font-family:'Bebas Neue',sans-serif;font-size:2.2rem;color:var(--amber);">EEG25</div>
-      <div style="font-size:0.7rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.08em;font-weight:700;">Aktuelle Daten</div>
+    <div class="stat-box tilt-3d" style="border-right:1px solid var(--border);">
+      <div class="stat-num">EEG25</div>
+      <div class="stat-lbl">Aktuelle Daten</div>
     </div>
-    <div style="padding:1.5rem 2rem;text-align:center;">
-      <div style="font-family:'Bebas Neue',sans-serif;font-size:2.2rem;color:var(--amber);">DSGVO</div>
-      <div style="font-size:0.7rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.08em;font-weight:700;">Konform</div>
+    <div class="stat-box tilt-3d">
+      <div class="stat-num">DSGVO</div>
+      <div class="stat-lbl">Konform</div>
     </div>
   </div>
 </div>
@@ -106,53 +107,53 @@
 
   <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1px;background:var(--border);border:1px solid var(--border);border-radius:var(--radius-lg);overflow:hidden;">
 
-    <a href="pv-ertragsrechner.html" style="background:var(--surface);padding:1.75rem;text-decoration:none;display:block;transition:background 0.2s;position:relative;overflow:hidden;" onmouseover="this.style.background='var(--surface2)'" onmouseout="this.style.background='var(--surface)'">
-      <div style="font-size:1.8rem;margin-bottom:0.75rem;">☀️</div>
-      <div style="font-size:0.65rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--amber);margin-bottom:4px;">Ertrag & Leistung</div>
-      <h3 style="font-family:'Bebas Neue',sans-serif;font-size:1.5rem;letter-spacing:0.03em;color:var(--text);margin-bottom:6px;">PV-ERTRAGSRECHNER</h3>
-      <p style="font-size:0.85rem;color:var(--text-dim);font-weight:300;line-height:1.5;margin-bottom:1rem;">Berechne den jährlichen Stromertrag deiner Anlage nach Dachfläche, Ausrichtung und Standort.</p>
-      <span style="font-size:0.8rem;color:var(--lime);font-weight:500;">Jetzt berechnen →</span>
+    <a href="pv-ertragsrechner.html" class="rechner-card">
+      <div class="rc-icon">☀️</div>
+      <div class="rc-tag">Ertrag & Leistung</div>
+      <h3>PV-ERTRAGSRECHNER</h3>
+      <p class="rc-desc">Berechne den jährlichen Stromertrag deiner Anlage nach Dachfläche, Ausrichtung und Standort.</p>
+      <span class="rc-cta">Jetzt berechnen →</span>
     </a>
 
-    <a href="amortisationsrechner.html" style="background:var(--surface);padding:1.75rem;text-decoration:none;display:block;transition:background 0.2s;" onmouseover="this.style.background='var(--surface2)'" onmouseout="this.style.background='var(--surface)'">
-      <div style="font-size:1.8rem;margin-bottom:0.75rem;">📈</div>
-      <div style="font-size:0.65rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--amber);margin-bottom:4px;">Wirtschaftlichkeit</div>
-      <h3 style="font-family:'Bebas Neue',sans-serif;font-size:1.5rem;letter-spacing:0.03em;color:var(--text);margin-bottom:6px;">AMORTISATIONSRECHNER</h3>
-      <p style="font-size:0.85rem;color:var(--text-dim);font-weight:300;line-height:1.5;margin-bottom:1rem;">Wann hat sich deine PV-Anlage bezahlt? Break-even und Rendite über 25 Jahre berechnen.</p>
-      <span style="font-size:0.8rem;color:var(--lime);font-weight:500;">Jetzt berechnen →</span>
+    <a href="amortisationsrechner.html" class="rechner-card">
+      <div class="rc-icon">📈</div>
+      <div class="rc-tag">Wirtschaftlichkeit</div>
+      <h3>AMORTISATIONSRECHNER</h3>
+      <p class="rc-desc">Wann hat sich deine PV-Anlage bezahlt? Break-even und Rendite über 25 Jahre berechnen.</p>
+      <span class="rc-cta">Jetzt berechnen →</span>
     </a>
 
-    <a href="einspeiseverguetung.html" style="background:var(--surface);padding:1.75rem;text-decoration:none;display:block;transition:background 0.2s;" onmouseover="this.style.background='var(--surface2)'" onmouseout="this.style.background='var(--surface)'">
-      <div style="font-size:1.8rem;margin-bottom:0.75rem;">⚡</div>
-      <div style="font-size:0.65rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--amber);margin-bottom:4px;">EEG 2025</div>
-      <h3 style="font-family:'Bebas Neue',sans-serif;font-size:1.5rem;letter-spacing:0.03em;color:var(--text);margin-bottom:6px;">EINSPEISEVERGÜTUNG</h3>
-      <p style="font-size:0.85rem;color:var(--text-dim);font-weight:300;line-height:1.5;margin-bottom:1rem;">Aktuelle EEG 2025 Vergütungssätze. Berechne deine Einnahmen aus der Netzeinspeisung.</p>
-      <span style="font-size:0.8rem;color:var(--lime);font-weight:500;">Jetzt berechnen →</span>
+    <a href="einspeiseverguetung.html" class="rechner-card">
+      <div class="rc-icon">⚡</div>
+      <div class="rc-tag">EEG 2025</div>
+      <h3>EINSPEISEVERGÜTUNG</h3>
+      <p class="rc-desc">Aktuelle EEG 2025 Vergütungssätze. Berechne deine Einnahmen aus der Netzeinspeisung.</p>
+      <span class="rc-cta">Jetzt berechnen →</span>
     </a>
 
-    <a href="speicherrechner.html" style="background:var(--surface);padding:1.75rem;text-decoration:none;display:block;transition:background 0.2s;" onmouseover="this.style.background='var(--surface2)'" onmouseout="this.style.background='var(--surface)'">
-      <div style="font-size:1.8rem;margin-bottom:0.75rem;">🔋</div>
-      <div style="font-size:0.65rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--amber);margin-bottom:4px;">Speicher & Eigenverbrauch</div>
-      <h3 style="font-family:'Bebas Neue',sans-serif;font-size:1.5rem;letter-spacing:0.03em;color:var(--text);margin-bottom:6px;">SPEICHER-RECHNER</h3>
-      <p style="font-size:0.85rem;color:var(--text-dim);font-weight:300;line-height:1.5;margin-bottom:1rem;">Optimale Speichergröße berechnen und Eigenverbrauchsquote maximieren.</p>
-      <span style="font-size:0.8rem;color:var(--lime);font-weight:500;">Jetzt berechnen →</span>
+    <a href="speicherrechner.html" class="rechner-card">
+      <div class="rc-icon">🔋</div>
+      <div class="rc-tag">Speicher & Eigenverbrauch</div>
+      <h3>SPEICHER-RECHNER</h3>
+      <p class="rc-desc">Optimale Speichergröße berechnen und Eigenverbrauchsquote maximieren.</p>
+      <span class="rc-cta">Jetzt berechnen →</span>
     </a>
 
-    <a href="foerderrechner.html" style="background:var(--surface);padding:1.75rem;text-decoration:none;display:block;transition:background 0.2s;grid-column:span 1;" onmouseover="this.style.background='var(--surface2)'" onmouseout="this.style.background='var(--surface)'">
-      <div style="font-size:1.8rem;margin-bottom:0.75rem;">🏛️</div>
-      <div style="font-size:0.65rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--amber);margin-bottom:4px;">KfW · BAFA · Bundesland</div>
-      <h3 style="font-family:'Bebas Neue',sans-serif;font-size:1.5rem;letter-spacing:0.03em;color:var(--text);margin-bottom:6px;">FÖRDERRECHNER</h3>
-      <p style="font-size:0.85rem;color:var(--text-dim);font-weight:300;line-height:1.5;margin-bottom:1rem;">Alle verfügbaren Förderungen nach PLZ — KfW, BAFA und Bundeslandprogramme.</p>
-      <span style="font-size:0.8rem;color:var(--lime);font-weight:500;">Jetzt berechnen →</span>
+    <a href="foerderrechner.html" class="rechner-card">
+      <div class="rc-icon">🏛️</div>
+      <div class="rc-tag">KfW · BAFA · Bundesland</div>
+      <h3>FÖRDERRECHNER</h3>
+      <p class="rc-desc">Alle verfügbaren Förderungen nach PLZ — KfW, BAFA und Bundeslandprogramme.</p>
+      <span class="rc-cta">Jetzt berechnen →</span>
     </a>
 
-    <a href="balkonkraftwerk.html" style="background:var(--surface);padding:1.75rem;text-decoration:none;display:block;transition:background 0.2s;position:relative;overflow:hidden;" onmouseover="this.style.background='var(--surface2)'" onmouseout="this.style.background='var(--surface)'">
-      <div style="position:absolute;top:12px;right:12px;font-size:0.6rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;background:var(--lime);color:var(--ink);padding:3px 8px;border-radius:2px;">NEU</div>
-      <div style="font-size:1.8rem;margin-bottom:0.75rem;">🔌</div>
-      <div style="font-size:0.65rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--amber);margin-bottom:4px;">Steckersolar · Mini-PV</div>
-      <h3 style="font-family:'Bebas Neue',sans-serif;font-size:1.5rem;letter-spacing:0.03em;color:var(--text);margin-bottom:6px;">BALKONKRAFTWERK</h3>
-      <p style="font-size:0.85rem;color:var(--text-dim);font-weight:300;line-height:1.5;margin-bottom:1rem;">Kosten, Amortisation und die besten 800W-Systeme im Vergleich — auch für Mieter.</p>
-      <span style="font-size:0.8rem;color:var(--lime);font-weight:500;">Jetzt vergleichen →</span>
+    <a href="balkonkraftwerk.html" class="rechner-card">
+      <div class="badge-new">NEU</div>
+      <div class="rc-icon">🔌</div>
+      <div class="rc-tag">Steckersolar · Mini-PV</div>
+      <h3>BALKONKRAFTWERK</h3>
+      <p class="rc-desc">Kosten, Amortisation und die besten 800W-Systeme im Vergleich — auch für Mieter.</p>
+      <span class="rc-cta">Jetzt vergleichen →</span>
     </a>
 
   </div>
@@ -228,5 +229,6 @@
 </footer>
 
 <script src="shared.js"></script>
+<script type="module" src="hero3d.js"></script>
 </body>
 </html>
