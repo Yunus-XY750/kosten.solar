@@ -103,3 +103,34 @@ document.addEventListener('click', function(e) {
   if (item) item.classList.toggle('open');
   if (e.target.id === 'modal') closeModal();
 });
+
+// ═══════════════════════════════════════════
+// 3D Tilt Engine — perspective tilt + cursor glare
+// on .calc-card / .related-card / .rechner-card / .tilt-3d
+// ═══════════════════════════════════════════
+function initTilt(selector, max, scale) {
+  document.querySelectorAll(selector).forEach(function (card) {
+    card.addEventListener('pointermove', function (e) {
+      const r = card.getBoundingClientRect();
+      const px = (e.clientX - r.left) / r.width;
+      const py = (e.clientY - r.top) / r.height;
+      const rx = (0.5 - py) * max;
+      const ry = (px - 0.5) * max;
+      card.style.transform = 'perspective(900px) rotateX(' + rx.toFixed(2) + 'deg) rotateY(' + ry.toFixed(2) + 'deg) scale3d(' + scale + ',' + scale + ',' + scale + ')';
+      card.style.setProperty('--mx', (px * 100) + '%');
+      card.style.setProperty('--my', (py * 100) + '%');
+    });
+    card.addEventListener('pointerleave', function () {
+      card.style.transform = '';
+    });
+  });
+}
+(function () {
+  const fine = window.matchMedia && window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+  const reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (!fine || reduced) return;
+  initTilt('.calc-card', 3, 1.005);
+  initTilt('.rechner-card', 6, 1.02);
+  initTilt('.related-card', 8, 1.03);
+  initTilt('.tilt-3d', 8, 1.02);
+})();
