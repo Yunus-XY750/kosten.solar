@@ -157,7 +157,7 @@ nav {
 .input-group { margin-bottom: 1rem; }
 .input-label { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-dim); margin-bottom: 5px; display: flex; justify-content: space-between; }
 .input-label span { color: var(--lime); font-size: 0.85rem; letter-spacing: 0; text-transform: none; font-family: 'Bebas Neue', sans-serif; }
-input[type=text], input[type=number], select {
+input[type=text], input[type=number], input[type=email], input[type=tel], select {
   width: 100%; background: var(--ink3); border: 1px solid var(--border); border-radius: var(--radius);
   padding: 9px 12px; color: var(--text); font-family: 'Cabinet Grotesk', sans-serif; font-size: 0.9rem; outline: none; transition: border-color 0.2s;
 }
