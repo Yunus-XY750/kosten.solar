@@ -70,11 +70,31 @@ function closeModal() {
   document.getElementById('modal-form').style.display = '';
   document.getElementById('modal-success').style.display = 'none';
 }
+// TODO: Formspree-Konto anlegen auf formspree.io → neues Formular erstellen → ID hier eintragen
+const FORMSPREE_ID = 'XXXXXXXX';
+
 function submitLead() {
   if (!v('m-name')||!v('m-email')||!v('m-plz')) { alert('Bitte alle Pflichtfelder ausfüllen.'); return; }
-  document.getElementById('modal-form').style.display = 'none';
-  document.getElementById('modal-success').style.display = 'block';
-  // fbq('track', 'Lead'); // Meta Pixel — nach Installation aktivieren
+  const btn = document.querySelector('.modal-submit');
+  if (btn) btn.disabled = true;
+
+  fetch('https://formspree.io/f/' + FORMSPREE_ID, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+    body: JSON.stringify({
+      name:    v('m-name'),
+      email:   v('m-email'),
+      telefon: v('m-tel'),
+      plz:     v('m-plz'),
+      quelle:  window.location.pathname
+    })
+  })
+  .finally(() => {
+    document.getElementById('modal-form').style.display = 'none';
+    document.getElementById('modal-success').style.display = 'block';
+    if (btn) btn.disabled = false;
+    // fbq('track', 'Lead'); // Meta Pixel — nach Installation aktivieren
+  });
 }
 
 // FAQ toggle
